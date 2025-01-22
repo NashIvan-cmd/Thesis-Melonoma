@@ -1,5 +1,6 @@
-import { StyleSheet, View, Pressable, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { Pressable } from '@/components/ui/pressable';
 
 type Props = {
   label: string;
@@ -13,7 +14,6 @@ export default function Button({ label, theme, onPress }: Props) {
       <View
         style={[
           styles.buttonContainer,
-          { borderWidth: 4, borderColor: '#ffd33d', borderRadius: 18 },
         ]}>
         <Pressable
           style={[styles.button, { backgroundColor: '#fff' }]}
@@ -27,8 +27,11 @@ export default function Button({ label, theme, onPress }: Props) {
 
   return (
     <View style={styles.buttonContainer}>
-      <Pressable style={styles.button} onPress={onPress}>
-        <Text style={styles.buttonLabel}>{label}</Text>
+      <Pressable 
+        onPress={onPress} 
+        className="flex w-full h-16 p-4 bg-orange-500 items-center justify-center rounded-lg"
+      >
+        <Text className="text-typography-0">{label}</Text>
       </Pressable>
     </View>
   );

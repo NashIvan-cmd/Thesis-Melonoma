@@ -1,4 +1,4 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { useState } from "react";
 
 import Button from '@/components/Button'; 
@@ -40,12 +40,18 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
+      <View className="pt-[15] pb-[5]">
+        <Text className="text-custom-xlg font-extrabold text-white">Track Your Skin Health</Text>
+      </View>
+      <View>
+        <Text style={{ color: '#7F92A0'}} className="text-[14px] font-semibold">Take regular photos to monitor changes in your skin</Text>
+      </View>
       <View style={styles.imageContainer}>
         <ImageViewer imgSource={PlaceholderImage} selectedImage={selectedImage} />
       </View>
       <View style={styles.footerContainer}>
-        <Button theme="primary" label="Choose a photo" onPress={pickImageAsync}/>
         <Button label="Take photo" onPress={takePhotoAsync} />
+        <Button theme="primary" label="Choose a photo" onPress={pickImageAsync}/>
       </View>
     </View>
   );
