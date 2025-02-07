@@ -26,12 +26,14 @@ export default function Button({ label, theme, onPress }: Props) {
   }
 
   return (
-    <View style={styles.buttonContainer}>
+    <View style={styles.buttonContainer} >
       <Pressable 
+        style={[styles.button]}
         onPress={onPress} 
         className="flex w-full h-16 p-4 bg-orange-500 items-center justify-center rounded-lg"
       >
-        <Text className="text-typography-0">{label}</Text>
+        <FontAwesome name="camera" size={18} color="black" style={styles.buttonIcon} />
+        <Text style={[styles.buttonLabel]} className="text-typography-0">{label}</Text>
       </Pressable>
     </View>
   );
@@ -39,7 +41,7 @@ export default function Button({ label, theme, onPress }: Props) {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: 320,
+    width: 330,
     height: 68,
     marginHorizontal: 20,
     alignItems: 'center',
