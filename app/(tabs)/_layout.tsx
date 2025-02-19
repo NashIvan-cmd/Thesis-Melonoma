@@ -28,9 +28,19 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="symptoms" 
+        options={{
+          title: 'Symptoms',
+          headerShown: false,
+          tabBarIcon: ({ focused, color }) => (
+            <Ionicons name={focused ? 'shield-checkmark' : 'shield-outline'} color={color} size={24} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="photo"
         options={{
-          title: '',
+          title: 'Camera',
           headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? 'camera' : 'camera-outline'} color={color} size={24} />
