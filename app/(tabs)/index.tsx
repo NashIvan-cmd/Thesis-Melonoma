@@ -1,21 +1,10 @@
 import { View, StyleSheet, Text } from "react-native";
 import { useState } from "react";
 import React from "react";
-import { Image } from "expo-image";
 
-import Button from '@/components/Button'; 
-import ImageViewer from '@/components/ImageViewer';
 import * as ImagePicker from 'expo-image-picker';
-import { PaginationDots } from '@/components/PaginationDots';
 
 import { Button as ButtonGlue, ButtonText } from "@/components/ui/button"
-
-const PlaceholderImage = require("@/assets/images/background-image.png");
-const FrontBody = require('@/assets/images/FrontBody.jpg');
-const BackBody = require('@/assets/images/BackBody.jpg');
-const asymmetric = require('@/assets/images/asymmetric.png');
-const irregularBorder = require('@/assets/images/irregular.png');
-const melenomaGuidelines = require('@/assets/images/a-e_guidelines.png');
 
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
@@ -23,34 +12,6 @@ import Feather from '@expo/vector-icons/Feather';
 
 export default function Index() {
   const [selectedImage, setSelectedImage] = useState<string | undefined>(undefined);
-  
-  const pickImageAsync = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ['images'],
-      allowsEditing: true,
-      quality: 1
-    });
-
-    if (!result.canceled) {
-      setSelectedImage(result.assets[0].uri);
-    } else {
-      alert('You did not select any image');
-    }
-  };
-
-  const takePhotoAsync = async () => {
-    let result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ['images'],
-      allowsEditing: true,
-      quality: 1
-    });
-
-    if (!result.canceled) {
-      setSelectedImage(result.assets[0].uri);
-    } else {
-      alert('No photo was taken.');
-    }
-  };
 
   return (
     <View style={styles.container}>
@@ -104,18 +65,6 @@ export default function Index() {
           Documents the evolution of marks
         </Text>
       </View>
-    </View>
-    <View className="w-full" style={styles.footerContainer}>
-      <ButtonGlue className="w-full h-[64] mb-[5] bg-orange-500 rounded-lg" onPress={takePhotoAsync} >
-        <ButtonText>
-          Take Photo
-        </ButtonText>
-      </ButtonGlue>
-      <ButtonGlue className="w-full h-[64] rounded-lg" variant="outline" onPress={pickImageAsync}>
-        <ButtonText className="text-white">
-          Choose Photo
-        </ButtonText> 
-      </ButtonGlue>
     </View>
 
     <View className="w-full bg-[#1A2211] rounded-xl p-4 mt-20">

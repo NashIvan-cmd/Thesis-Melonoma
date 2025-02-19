@@ -13,3 +13,9 @@
       --font-size-dynamic: 18px;
     }
   }
+
+  @layer components {
+    .subtext {
+      @apply text-slate-400 text-md;
+    }
+  }
